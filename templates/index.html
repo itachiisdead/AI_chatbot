@@ -4,10 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+       body{
+        font-family: monospace;
+       }
+       #chatbox {
+           margin-left: auto;
+           margin-right: auto;
+           width:40%;
+           margin-top: 50px;
+
+       }
+       .botText{
+         font-family: monospace;
+         font-size: 16px;
+         text-align: left;
+         line-height: 25px;
+         color: blue;
+                 
+       }
+        #userInput{
+          margin-left: auto;
+          margin-right: auto;
+          width: 80%;
+          text-align: center;
+          margin-top: 50px;
+
+
+        }
+         
+        #testInput{
+          border-bottom: 3px solid #657889;
+          font-family:monospace ;
+          font-size: 16px;
+
+        }
+        #buttonInput{
+          padding: 5px;
+          font-family: monospace;
+          font-size: 16px;
+        }
+        h1{
+          text-align: center;
+        }
+
+
+    </style>
 </head>
 <body>
     
-  <h1>This is the home page </h1>
+  <h1> BeepBop ChatBot </h1>
+  <div>
+    <div id="ChatBox">
+     <p class="botText"><span>Hi there! This is BeepBop.</span> </p>
+    </div>  
+
+    <div id="userInput">
+     <input id="textInput" type="text" name="usermessage"placeholder="Type your message"/>
+     <input id="buttonInput"type="sybmit" value="send"/> 
+    </div>
+
+
+  </div>    
+
 
 </body>
 </html>
