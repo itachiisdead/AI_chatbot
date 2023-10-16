@@ -17,7 +17,7 @@ beepbop=ChatBot("chatbot",read_only=False,
 trainer = ChatterBotCorpusTrainer(beepbop)
 trainer.train("chatterbot.corpus.english")
 
-@app.route("/get")
+@app.route("/")
 def main():
    return render_template("index.html")
 

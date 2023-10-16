@@ -1,3 +1,4 @@
+#this is a test bot that can solve simple math equations
 from chatterbot import ChatBot
 
 bot=ChatBot("Math",logic_adapters=["chatterbot.logic.MathematicalEvaluation"])

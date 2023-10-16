@@ -1,3 +1,4 @@
+#this is a chatbot that can convert units
 from chatterbot import ChatBot
 
 bot=ChatBot("units",logic_adapters=["chatterbot.logic.UnitConversion"])
