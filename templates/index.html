@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BeepBop</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <style>
        body{
@@ -20,16 +21,15 @@
          font-family:monospace;
          font-size: 20px;
          text-align: center;
-         width: 80%;
          line-height: 25px;
          color:darkgreen ;
-         margin-top: 70px;
+         
                  
        }
         #userInput{
           margin-left: auto;
           margin-right: auto;
-          width: 90%;
+          width: 80%;
           text-align: center;
           margin-top: 50px;
 
@@ -37,10 +37,13 @@
         }
          
         #textInput{
-          border-bottom: 3px solid #657889;
+          border:3px solid white;
+          border-bottom: 3px dotted #657889;
           font-family:monospace ;
           font-size: 18px;
-          width:30%;
+          width:60%;
+          padding: 20px;
+          color: blueviolet;
 
         }
         #buttonInput{
@@ -49,13 +52,19 @@
           font-size: 18px;
           text-align: center;
           width: 7%;
+          padding: 10px;
+          border: 3px solid saddlebrown;
+          background-color: beige;
+          border-radius: 10px;
         }
         h1{
           text-align: center;
           font-family:monospace;
           color: maroon;
         }
-
+      .userText{
+        text-align: right;
+      }
 
     </style>
 </head>
@@ -64,17 +73,41 @@
   <h1> BeepBop ChatBot </h1>
   <div>
     <div id="ChatBox">
-     <p class="botText"><span>Hi there! This is BeepBop.</span> </p>
+        <p class="botText"><span>Hi there! This is BeepBop.</span></p>
     </div>  
 
     <div id="userInput">
-     <input id="textInput" type="text" name="usermessage"placeholder="Type your message"/>
-     <input id="buttonInput"type="submit" value="send"/> 
+      <input id="textInput" type="text" name="userMessage"placeholder="Type your message....."/>
+      <input id="buttonInput"type="submit" value="send"/> 
     </div>
-
-
   </div>    
 
+  <script>
+     function getUserResponse()
+       {
+         var userText= $('#textInput').val();
+         var userHTML="<p class='userText'>User: <span>"+userText+"</span></p>";
+         $('#textInput').val("");
+         $('#Chatbox').append(userHTML);
+         document.getElementById("userInput").scrollIntoView({block:'start',behavior:'smooth'});
+         $.get("/get",{userMessage: userText}).done(function(data){
+         var botHTML ="<p class='botText'>BeepBop: <span>"+data+"</span></p>"
+         $('#Chatbox').append(botHTML);
+         });   
+       }  
+
+
+    $("#textInput").keypress(function(e)
+     {
+       if(e.which==13){
+         getUserResponse();
+       }
+     });
+     $('#buttonInput').click(function(){
+         getUserResponse();
+      }); 
+
+  </script>
 
 </body>
 </html>
