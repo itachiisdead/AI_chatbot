@@ -15,7 +15,6 @@ beepbop=ChatBot("chatbot",read_only=False,
 
 
 trainer = ChatterBotCorpusTrainer(beepbop)
-
 #trainer.train("chatterbot.corpus.english")
 
 @app.route("/")
@@ -25,8 +24,8 @@ def main():
 
 
 #while True:
- # user_response=input("User: ")
-  #print("BeepBop: "+ str(beepbop.get_response(user_response)))
+#  user_response=input("User: ")
+#  print("BeepBop: "+ str(beepbop.get_response(user_response)))
 
 
 if __name__ =="__main__":
