@@ -83,7 +83,7 @@
             $('#chatBox').append(userHTML);
             document.getElementById("userInput").scrollIntoView({ block: 'start', behavior: 'smooth' });
             $.post("/get_chatbot_response", { user_message: userText }).done(function (data) {
-                var botHTML = "<p class='botText'>BeepBop: <span>" + data + "</span></p>";
+                var botHTML = "<p class='botText'>BeepBop: <span>" + data.weather[0].discription  + "</span></p>";
                 $('#chatBox').append(botHTML);
             });
         }
